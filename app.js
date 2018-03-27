@@ -10,6 +10,7 @@ const util = require('./public/util/util')
 const index = require('./routes/index')
 const cnode = require('./routes/cnode')
 const sf = require('./routes/segmentfault')
+const dytt = require('./routes/dytt')
 
 util.replaceAndTrim()
 
@@ -40,6 +41,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(cnode.routes(), cnode.allowedMethods())
 app.use(sf.routes(), sf.allowedMethods());
+app.use(dytt.routes(), dytt.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {

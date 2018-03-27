@@ -23,7 +23,8 @@
     "url": "^0.11.0",
     "superagent": "^3.8.2",
     "cheerio": "^1.0.0-rc.2",
-    "eventproxy": "^1.0.0"
+    "eventproxy": "^1.0.0",
+    "https": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"

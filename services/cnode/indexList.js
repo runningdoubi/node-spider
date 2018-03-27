@@ -9,7 +9,8 @@ async function indexList(page, tab) {
   let pageUrl = url.resolve(targetUrl, `/?tab=${tab}&page=${page}`);
   await superagent.get(pageUrl).then((res, rej) => {
     if (rej) {
-      return console.log(rej);
+      console.log(rej);
+      return; 
     }
     var $ = cheerio.load(res.text);
     $("#topic_list .cell").each((index, ele) => {
