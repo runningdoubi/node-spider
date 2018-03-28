@@ -10,7 +10,7 @@ router.get('/', async (ctx, next) => {
 router.get('/dyttNew', async (ctx, next) => {
   let page = ctx.query.page || 1;
   var list = await dyttNew(page);
-  ctx.body = list;
+  ctx.body = {page, result: list};
 })
 
 module.exports = router 
