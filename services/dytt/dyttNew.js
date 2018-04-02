@@ -27,9 +27,8 @@ async function dyttNew(page) {
       var $ = cheerio.load(res.text);
       var name = $(".title_all font").text().replaceAndTrim();
       var coverImage = $("#Zoom span").eq(0).find("img").eq(0).attr("src");
-      //var downloadUrl = $("#Zoom span").eq(0).find("a[thundertype]").attr("tmfgeulm");
-      // var content = $("#Zoom span").eq(0).html().replaceAndTrim();
-      movieInfo.push({name, coverImage});
+      var downloadURL = $("#Zoom span").eq(0).find("a[href]").eq(0).attr("href");
+      movieInfo.push({name, coverImage, originURL: movieInfoUrls[index], downloadURL});
     })
   }
   
