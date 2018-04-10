@@ -5,9 +5,10 @@ const eventproxy = require("eventproxy");
 const cheerio = require("cheerio");
 charset(superagent)
 
-async function dyttNew(page) {
-  const baseUrl = 'http://www.dytt8.net';
-  const targetUrl = page == 1 ? `${baseUrl}/html/gndy/dyzz/index.html` : `${baseUrl}/html/gndy/dyzz/list_23_${page}.html`;
+async function dyttSearch(keyword, page, pageSize, totalResult) {
+  const baseUrl = "http://www.ygdy8.com";
+  const search_baseUrl = "http://s.ygdy8.com/plus/so.php";
+  const targetUrl = `${search_baseUrl}?keyword=${keyword}&searchtype=title&channeltype=0&orderby=&kwtype=0&pagesize=${pageSize}&typeid=0&TotalResult=${totalResult}&PageNo=${page}`;
   var movieInfoUrls = [];
   var movieInfo = [];
   await superagent.get(targetUrl).then((res, rej) => {
@@ -17,7 +18,7 @@ async function dyttNew(page) {
     }
     var $ = cheerio.load(res.text);
     var movieInfoUrl = "";
-    $(".co_content8 ul a.ulink").each((i, item) => {
+    $(".co_content8 ul table:not(:last-child) a").each((i, item) => {
       movieInfoUrl = `${baseUrl}${$(item).attr("href")}`;
       movieInfoUrls.push(movieInfoUrl);
     })
@@ -42,4 +43,4 @@ async function dyttNew(page) {
   return movieInfo;
 }
 
-module.exports = dyttNew
+module.exports = dyttSearch;
