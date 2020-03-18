@@ -11,6 +11,7 @@ const index = require('./routes/index')
 const cnode = require('./routes/cnode')
 const sf = require('./routes/segmentfault')
 const dytt = require('./routes/dytt')
+const exchangeRate = require('./routes/exchangeRate')
 
 util.replaceAndTrim()
 
@@ -42,6 +43,7 @@ app.use(index.routes(), index.allowedMethods())
 app.use(cnode.routes(), cnode.allowedMethods())
 app.use(sf.routes(), sf.allowedMethods());
 app.use(dytt.routes(), dytt.allowedMethods());
+app.use(exchangeRate.routes(), exchangeRate.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {
