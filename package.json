@@ -25,7 +25,7 @@
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "superagent": "^3.8.2",
     "superagent-charset": "^1.2.0",
     "url": "^0.11.0"
