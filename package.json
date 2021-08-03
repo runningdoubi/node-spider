@@ -6,7 +6,8 @@
     "start": "node bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pkg . --out-path dist --debug"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
@@ -31,6 +32,18 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "pkg": "^5.3.1"
+  },
+  "bin": "bin/www",
+  "pkg": {
+    "assets": [
+      "views/**/*",
+      "public/**/*"
+    ],
+    "targets": [
+      "node14-win-x64",
+      "node14-macos-x64"
+    ]
   }
 }

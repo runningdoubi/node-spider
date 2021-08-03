@@ -12,7 +12,7 @@ const cnode = require('./routes/cnode')
 const sf = require('./routes/segmentfault')
 const dytt = require('./routes/dytt')
 const exchangeRate = require('./routes/exchangeRate')
-
+const path = require('path');
 util.replaceAndTrim()
 
 // error handler
@@ -24,9 +24,9 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(require('koa-static')(path.join(__dirname, 'public')))
 
-app.use(views(__dirname + '/views', {
+app.use(views(path.join(__dirname, 'views'), {
   extension: 'ejs'
 }))
 
