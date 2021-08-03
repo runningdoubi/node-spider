@@ -21,7 +21,7 @@ router.get('/:source-:target', async (ctx, next) => {
     let csv = iconv.encode(parse(result, {fields}), 'gbk');
     let data = new Buffer(csv,'binary');
     ctx.set('Content-Type', 'application/vnd.openxmlformats');
-    ctx.set("Content-Disposition", "attachment; filename=" + "data.csv");
+    ctx.set("Content-Disposition", "attachment; filename=" + source + "-" + target + ".csv");
     console.log("处理数据：",data);
     ctx.body = data;
 })
